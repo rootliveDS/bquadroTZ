@@ -139,6 +139,5 @@ form h1{
 form button {
     display: inline-block;
     height: 50px;
-    text-align: right;
     margin-left: 50%;
 }
