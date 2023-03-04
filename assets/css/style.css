@@ -1,0 +1,105 @@
+body{
+    margin:0;
+    background-color: #333;
+
+}
+
+article{
+    height: 220px;
+}
+.header {
+    color: #fff;
+    padding: 20px;
+    align-items: center;
+    height: auto;
+    display: flex;
+    text-align: left;
+
+}
+
+.logo {
+    cursor: pointer;
+    width: 40px;
+    height: auto;
+    margin: 10px;
+    margin-right: 20px;
+}
+
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.nav-menu a{
+    color: whitesmoke;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+
+
+
+.first-line{
+    flex-wrap: wrap;
+    flex-direction: row;
+    display: flex;
+
+
+}
+.second-line{
+    flex-wrap: wrap;
+    flex-direction: row;
+    display: flex;
+
+}
+
+
+.third-line{
+    flex-wrap: wrap;
+    flex-direction: row;
+    display: flex;
+}
+.blockAliquam{
+    width: 40%;
+    background-color: #5aa8a1;
+}
+
+.blockMagna{
+    width: 60%;
+    background-color: #deac5f;
+}
+
+.blockConsequat{
+    width: 40%;
+    background-color: #af5154;
+}
+
+.blockTempus {
+    width: 60%;
+    background-color: #8f71b3;
+}
+
+.blockEtiam{
+    width: 60%;
+    background-color: #556f59;
+}
+
+.blockConsequat{
+    width: 40%;
+    background-color: #4a4ca7;
+}
+.blockIpsum{
+    width: 40%;
+    background-color: #4a4ca7;
+}
+.major a,p{
+    color: whitesmoke;
+    text-decoration: none;
+    margin-left: 20px;
+}
