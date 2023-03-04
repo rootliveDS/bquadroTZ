@@ -39,7 +39,7 @@ article{
 .nav-menu a{
     color: whitesmoke;
     text-decoration: none;
-    margin-left: 20px;
+    margin-left: 30px;
 }
 
 
@@ -96,10 +96,49 @@ article{
 }
 .blockIpsum{
     width: 40%;
-    background-color: #4a4ca7;
+    background-color: #71442f;
 }
 .major a,p{
     color: whitesmoke;
     text-decoration: none;
     margin-left: 20px;
+}
+
+
+form{
+    display: inline;
+}
+
+form div{
+    margin-top: 10px;
+    display: block;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    lex-wrap: wrap;
+    text-align: center;
+}
+div input{
+    width: 200px;
+}
+
+div textarea{
+    width: 200px;
+}
+
+form div label{
+    color: whitesmoke;
+
+}
+form h1{
+    color: whitesmoke;
+    font-size: 16px;
+    text-align: center;
+}
+
+form button {
+    display: inline-block;
+    height: 50px;
+    text-align: right;
+    margin-left: 50%;
 }

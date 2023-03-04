@@ -1,5 +1,5 @@
 <footer>
-    <p>Copyright &copy; 2023 Мой сайт</p>
+    <p>Copyright &copy; 2023 </p>
 </footer>
 </body>
 </html>
