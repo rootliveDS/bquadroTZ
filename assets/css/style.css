@@ -26,21 +26,6 @@ article{
 }
 
 
-.nav-menu {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-.nav-menu a{
-    color: whitesmoke;
-    text-decoration: none;
-    margin-left: 30px;
-}
 
 
 
@@ -94,10 +79,12 @@ article{
     width: 40%;
     background-color: #4a4ca7;
 }
+
 .blockIpsum{
     width: 40%;
     background-color: #71442f;
 }
+
 .major a,p{
     color: whitesmoke;
     text-decoration: none;

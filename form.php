@@ -13,11 +13,11 @@
         <textarea id="message" name="message" required></textarea>
     </div>
     <button type="submit" >Отправить</button>
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $message = "Данные успешно отправлены!";
 
-        echo "<script>alert('$message');</script>";
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')  {
+        echo "<script>alert('Данные успешно отправлены!');</script>";
     }
     ?>
+
 </form>
