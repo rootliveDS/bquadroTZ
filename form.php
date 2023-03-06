@@ -16,6 +16,14 @@
 
     <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST')  {
+        $to = 'ageev@itr.spb.ru';
+        $subject = 'Уведомление о отправке формы обратной связи';
+        $message = 'Форма была успешно отправлена.';
+        $headers = 'From: yourwebsite@example.com' . "\r\n" .
+            'Reply-To: yourwebsite@example.com' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+
+        mail($to, $subject, $message, $headers);
         echo "<script>alert('Данные успешно отправлены!');</script>";
     }
     ?>
