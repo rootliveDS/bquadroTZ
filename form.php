@@ -21,11 +21,68 @@
     <button type="submit" >Отправить</button>
 
     <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST')  {
-        echo "<script>alert('Данные успешно отправлены!');</script>";
+    require_once "vendor/phpmailer/phpmailer/src/PHPMailer.php";
+    require_once "vendor/phpmailer/phpmailer/src/SMTP.php";
+    require_once "vendor/phpmailer/phpmailer/src/Exception.php";
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $name = $_POST['name'] ?? '';
+        $email = $_POST['email'] ?? '';
+        $message = $_POST['message'] ?? '';
+
+        $errors = [];
+        if (empty($name)) {
+            $errors[] = 'Введите имя';
+        }
+        if (empty($email)) {
+            $errors[] = 'Введите email';
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors[] = 'Введите корректный email';
+        }
+        if (empty($message)) {
+            $errors[] = 'Введите сообщение';
+        }
+        if (empty($errors)) {
+            // создаем экземпляр класса PHPMailer
+            $mail = new PHPMailer\PHPMailer\PHPMailer();
+            // настройки SMTP
+            $mail->isSMTP();
+            $mail->Host       = 'srvmail.atr-sz.ru';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'ageev@atr-sz.ru';
+            $mail->Password   = 'got500!!feetli';
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port       = 587;
+            // настройки письма
+            $mail->setFrom('ageev@atr-sz.ru', 'Your Name');
+            $mail->addAddress('admin@example.com', 'Admin');
+            $mail->isHTML(true);
+            $mail->Subject = 'Сообщение из формы обратной связи';
+            $mail->Body    = "<p>Имя: $name</p><p>Email: $email</p><p>Сообщение: $message</p>";
+            // отправляем письмо
+            if ($mail->send()) {
+                $response = array(
+                    'status' => 'success',
+                    'message' => 'Сообщение успешно отправлено',
+                );
+                echo "<script>alert('Данные успешно отправлены!');</script>";
+            } else {
+                $response = array(
+                    'status' => 'error',
+                    'message' => 'Ошибка при отправке сообщения'
+                );
+            }
+        } else {
+            $response = array(
+                'status' => 'error',
+                'message' => implode('<br>', $errors)
+            );
+        }
+
+
     }
     ?>
-    <script src="https://unpkg.com/vue@2.7.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     <script>
         const app = new Vue({
             el: '#app',
@@ -50,6 +107,22 @@
                         this.errors.push('Требуется указать email.');
                     }
                     e.preventDefault();
+                },
+                submitForm() {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('POST', '/server.php', true);
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xhr.onreadystatechange = () => {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            const response = JSON.parse(xhr.responseText);
+                            if (response.status === 'success') {
+                                alert('Данные отправлены!');
+                            } else {
+                                this.errors = response.errors;
+                            }
+                        }
+                    };
+                    xhr.send(`name=${this.name}&email=${this.email}&message=${this.message}`);
                 }
             }
         })
