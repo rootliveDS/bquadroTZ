@@ -47,10 +47,10 @@
             $mail = new PHPMailer\PHPMailer\PHPMailer();
             // настройки SMTP
             $mail->isSMTP();
-            $mail->Host       = 'srvmail.atr-sz.ru';
+            $mail->Host       = '';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'ageev@atr-sz.ru';
-            $mail->Password   = 'got500!!feetli';
+            $mail->Username   = '';
+            $mail->Password   = '';
             $mail->SMTPSecure = 'ssl';
             $mail->Port       = 587;
             // настройки письма
